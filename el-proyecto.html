@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>El Proyecto — Finisterre 71</title>
+<meta name="description" content="El Mercedes-Benz 911/48 de 1971, su restauración, la ruta a Patagonia y el origen del nombre Finisterre." />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="wordmark" href="index.html"><img src="assets/img/logo.png" alt="" />Finisterre&nbsp;71</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="el-proyecto.html" aria-current="page">El Proyecto</a></li>
+      <li><a href="tripulacion.html">Tripulación</a></li>
+      <li><a href="documental.html">Documental</a></li>
+      <li><a href="colaborar.html">Colaborar</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-hero photo" style="background-image: linear-gradient(180deg, rgba(15,18,15,0.35) 0%, rgba(15,18,15,0.55) 60%, rgba(15,18,15,0.82) 100%), url('assets/img/el-proyecto-hero.jpg'); background-size: cover; background-position: center 45%;">
+  <div class="wrap">
+    <span class="eyebrow">El proyecto</span>
+    <h1>Un colectivo de 1971,<br />rumbo al sur</h1>
+    <p class="lede">El Motorhome del proyecto: qué es, dónde está y hacia dónde va.</p>
+  </div>
+</header>
+
+<section class="reveal">
+  <div class="wrap dossier">
+    <div>
+      <span class="eyebrow">El vehículo</span>
+      <h2 style="margin-top:10px;">El Motorhome del proyecto</h2>
+      <p style="color:var(--muted); margin-top:14px;">Compramos el colectivo entre los cuatro con una sola idea: que nos lleve hasta el sur y que aguante el viaje de vuelta. Hoy sigue en el taller — pronto en la ruta.</p>
+      <p class="dossier-note">"4 amigos. Mercedes-Benz 911/48 · 1971. Todavía en el taller. Pronto en la ruta."</p>
+    </div>
+    <table class="spec-table">
+      <tr><td>Modelo</td><td>Mercedes-Benz 911/48</td></tr>
+      <tr><td>Año</td><td>1971</td></tr>
+      <tr><td>Tipo</td><td>Motorhome, reacondicionado para expedición</td></tr>
+      <tr><td>Propietarios</td><td>4 — copropiedad entre la tripulación</td></tr>
+      <tr><td>Estado actual</td><td><span class="status-tag">En restauración</span></td></tr>
+      <tr><td>Base</td><td>Taller, Gral. Rodríguez, Buenos Aires</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="reveal" style="padding-top:0;">
+  <div class="wrap">
+    <img src="assets/img/full/colectivo-frente.jpg?v=2" alt="El Mercedes-Benz 911/48 de frente, en el taller" style="border:1px solid var(--border); max-width:560px; width:100%; margin:0 auto; display:block;" />
+  </div>
+</section>
+
+<hr class="divider" />
+
+<section class="reveal" id="antes">
+  <div class="wrap">
+    <span class="eyebrow">Antes</span>
+    <h2 class="section-head" style="margin-top:10px;">Este colectivo ya estuvo ahí</h2>
+    <p style="color:var(--muted); margin-top:-24px;">Fotos de una vida anterior del vehículo, ya recorriendo la Patagonia. Ahora lo estamos restaurando para que vuelva.</p>
+  </div>
+  <div class="wrap">
+    <div class="gallery" style="display:flex; flex-wrap:wrap; justify-content:center;">
+      <div class="frame" style="background-image:url(assets/img/historia/thumb/la-roca.jpg); flex:0 1 300px;" data-full="assets/img/historia/full/la-roca.jpg" data-caption="Bajo la piedra"></div>
+      <div class="frame" style="background-image:url(assets/img/historia/thumb/la-ruta.jpg); flex:0 1 300px;" data-full="assets/img/historia/full/la-ruta.jpg" data-caption="En la ruta"></div>
+      <div class="frame" style="background-image:url(assets/img/historia/thumb/el-acantilado.jpg); flex:0 1 300px;" data-full="assets/img/historia/full/el-acantilado.jpg" data-caption="El acantilado"></div>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">&times;</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Foto anterior">&#8249;</button>
+  <img id="lightboxImg" alt="" />
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Foto siguiente">&#8250;</button>
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
+<hr class="divider" />
+
+<section class="reveal">
+  <div class="wrap">
+    <span class="eyebrow">La ruta</span>
+    <h2 class="section-head" style="margin-top:10px;">Cuatro etapas</h2>
+    <div class="timeline">
+      <div class="stage">
+        <div class="when">Ahora</div>
+        <h3>Restauración</h3>
+        <p>El colectivo en el taller, Gral. Rodríguez.</p>
+      </div>
+      <div class="stage">
+        <div class="when">Mediados de enero, 2027</div>
+        <h3>Partida</h3>
+        <p>Salimos rumbo al sur.</p>
+      </div>
+      <div class="stage">
+        <div class="when">Enero – marzo, 2027</div>
+        <h3>Patagonia</h3>
+        <p>Pesca, rodaje, comunidades locales, paisaje.</p>
+      </div>
+      <div class="stage">
+        <div class="when">Mediados de marzo, 2027</div>
+        <h3>Regreso</h3>
+        <p>Vuelta a Buenos Aires con el material filmado.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:56px; font-size:18px;">El recorrido, parada por parada</h3>
+    <ol class="route-list">
+      <li><span class="idx">01</span><span class="place">Buenos Aires</span><span class="prov">Salida</span></li>
+      <li><span class="idx">02</span><span class="place">San Martín de los Andes</span><span class="prov">Neuquén</span></li>
+      <li><span class="idx">03</span><span class="place">Villa La Angostura</span><span class="prov">Neuquén</span></li>
+      <li><span class="idx">04</span><span class="place">San Carlos de Bariloche</span><span class="prov">Río Negro</span></li>
+      <li><span class="idx">05</span><span class="place">El Bolsón</span><span class="prov">Río Negro</span></li>
+      <li><span class="idx">06</span><span class="place">Cholila</span><span class="prov">Chubut</span></li>
+      <li><span class="idx">07</span><span class="place">Esquel</span><span class="prov">Chubut</span></li>
+      <li><span class="idx">08</span><span class="place">Parque Nacional Los Alerces</span><span class="prov">Chubut</span></li>
+      <li><span class="idx">09</span><span class="place">Cascada Nant y Fall, Trevelin</span><span class="prov">Chubut</span></li>
+      <li><span class="idx">10</span><span class="place">Perito Moreno</span><span class="prov">Santa Cruz</span></li>
+      <li><span class="idx">11</span><span class="place">Cueva de las Manos</span><span class="prov">Santa Cruz</span></li>
+      <li><span class="idx">12</span><span class="place">El Chaltén</span><span class="prov">Santa Cruz</span></li>
+      <li><span class="idx">13</span><span class="place">El Calafate</span><span class="prov">Santa Cruz</span></li>
+      <li><span class="idx">14</span><span class="place">Cabo Vírgenes</span><span class="prov">Santa Cruz</span></li>
+      <li><span class="idx">15</span><span class="place">Monte León</span><span class="prov">Santa Cruz</span></li>
+      <li><span class="idx">16</span><span class="place">Bosques Petrificados de Jaramillo</span><span class="prov">Santa Cruz</span></li>
+      <li><span class="idx">17</span><span class="place">Isla Pingüino</span><span class="prov">Santa Cruz</span></li>
+      <li><span class="idx">18</span><span class="place">Cabo Dos Bahías</span><span class="prov">Chubut</span></li>
+      <li><span class="idx">19</span><span class="place">Península Valdés</span><span class="prov">Chubut</span></li>
+      <li><span class="idx">20</span><span class="place">Punta Bermeja, La Lobería</span><span class="prov">Río Negro</span></li>
+      <li><span class="idx">21</span><span class="place">Gral. Rodríguez</span><span class="prov">Regreso</span></li>
+    </ol>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<section class="reveal">
+  <div class="wrap">
+    <span class="eyebrow">El nombre</span>
+    <h2 class="section-head" style="margin-top:10px;">Por qué Finisterre</h2>
+    <div class="why-panel">
+      <p>En los mapas antiguos, <em>finisterre</em> marcaba el borde del mundo conocido — el punto donde el mapa se terminaba y empezaba lo desconocido. A la Patagonia históricamente la llamaron lo mismo: el fin del mundo.</p>
+      <p>71 es el año en que se fabricó el colectivo. Finisterre 71 es eso: un vehículo viejo llevando a cuatro amigos hasta el borde del mapa, para ver qué hay ahí.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <ul class="foot-links">
+      <li><a href="https://www.instagram.com/finisterre71/" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="mailto:71finisterre71@gmail.com">Email</a></li>
+      <li><a href="https://wa.me/5491161454831" target="_blank" rel="noopener">WhatsApp</a></li>
+    </ul>
+  </div>
+  <footer class="bottom">FINISTERRE 71 — BUENOS AIRES → PATAGONIA — 2027</footer>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
