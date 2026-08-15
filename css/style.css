@@ -226,6 +226,7 @@ h1, h2, h3 {
   }
   .nav-links.open { max-height: 400px; }
   .nav-links a {
+    display: block;
     padding: 16px clamp(20px, 5vw, 56px);
     width: 100%;
     border-bottom: 1px solid var(--border);
