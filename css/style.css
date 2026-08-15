@@ -375,8 +375,10 @@ section { padding: clamp(56px, 9vw, 96px) 0; }
 .crew-card-body { padding: 24px 28px; display: flex; flex-direction: column; gap: 10px; flex: 1; min-width: 0; }
 .crew-card:not(:has(.crew-photo)) .crew-card-body { padding: 28px 32px; }
 @media (max-width: 480px) {
+  .crew-grid { grid-template-columns: 1fr; }
   .crew-photo { width: 100px; }
   .crew-card-body { padding: 18px 20px; }
+  .crew-card .role { white-space: normal; }
 }
 .crew-card .role {
   font-family: var(--font-mono);
