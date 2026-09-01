@@ -19,6 +19,8 @@
 <meta name="twitter:description" content="El Mercedes-Benz 911/48 de 1971, su restauración, la ruta a Patagonia y el origen del nombre Finisterre." />
 <meta name="twitter:image" content="https://finisterre71.com/assets/img/el-proyecto-hero.jpg" />
 <link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CCNTPRQ4YB"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -134,28 +136,38 @@
     </div>
 
     <h3 style="margin-top:56px; font-size:18px;">El recorrido, parada por parada</h3>
+
+    <div class="route-map-wrap">
+      <div class="route-map" id="routeMap" role="application" aria-label="Mapa interactivo del recorrido de Finisterre 71"></div>
+      <div class="route-map-caption">
+        <span>22 paradas · Buenos Aires → Patagonia → Buenos Aires</span>
+        <span>Click y arrastrá para explorar</span>
+      </div>
+    </div>
+
     <ol class="route-list">
       <li><span class="idx">01</span><span class="place">Buenos Aires</span><span class="prov">Salida</span></li>
-      <li><span class="idx">02</span><span class="place">San Martín de los Andes</span><span class="prov">Neuquén</span></li>
-      <li><span class="idx">03</span><span class="place">Villa La Angostura</span><span class="prov">Neuquén</span></li>
-      <li><span class="idx">04</span><span class="place">San Carlos de Bariloche</span><span class="prov">Río Negro</span></li>
-      <li><span class="idx">05</span><span class="place">El Bolsón</span><span class="prov">Río Negro</span></li>
-      <li><span class="idx">06</span><span class="place">Cholila</span><span class="prov">Chubut</span></li>
-      <li><span class="idx">07</span><span class="place">Esquel</span><span class="prov">Chubut</span></li>
-      <li><span class="idx">08</span><span class="place">Parque Nacional Los Alerces</span><span class="prov">Chubut</span></li>
-      <li><span class="idx">09</span><span class="place">Cascada Nant y Fall, Trevelin</span><span class="prov">Chubut</span></li>
-      <li><span class="idx">10</span><span class="place">Perito Moreno</span><span class="prov">Santa Cruz</span></li>
-      <li><span class="idx">11</span><span class="place">Cueva de las Manos</span><span class="prov">Santa Cruz</span></li>
-      <li><span class="idx">12</span><span class="place">El Chaltén</span><span class="prov">Santa Cruz</span></li>
-      <li><span class="idx">13</span><span class="place">El Calafate</span><span class="prov">Santa Cruz</span></li>
-      <li><span class="idx">14</span><span class="place">Cabo Vírgenes</span><span class="prov">Santa Cruz</span></li>
-      <li><span class="idx">15</span><span class="place">Monte León</span><span class="prov">Santa Cruz</span></li>
-      <li><span class="idx">16</span><span class="place">Bosques Petrificados de Jaramillo</span><span class="prov">Santa Cruz</span></li>
-      <li><span class="idx">17</span><span class="place">Isla Pingüino</span><span class="prov">Santa Cruz</span></li>
-      <li><span class="idx">18</span><span class="place">Cabo Dos Bahías</span><span class="prov">Chubut</span></li>
-      <li><span class="idx">19</span><span class="place">Península Valdés</span><span class="prov">Chubut</span></li>
-      <li><span class="idx">20</span><span class="place">Punta Bermeja, La Lobería</span><span class="prov">Río Negro</span></li>
-      <li><span class="idx">21</span><span class="place">Gral. Rodríguez</span><span class="prov">Regreso</span></li>
+      <li><span class="idx">02</span><span class="place">Junín de los Andes</span><span class="prov">Neuquén</span></li>
+      <li><span class="idx">03</span><span class="place">San Martín de los Andes</span><span class="prov">Neuquén</span></li>
+      <li><span class="idx">04</span><span class="place">Villa La Angostura</span><span class="prov">Neuquén</span></li>
+      <li><span class="idx">05</span><span class="place">San Carlos de Bariloche</span><span class="prov">Río Negro</span></li>
+      <li><span class="idx">06</span><span class="place">El Bolsón</span><span class="prov">Río Negro</span></li>
+      <li><span class="idx">07</span><span class="place">Cholila</span><span class="prov">Chubut</span></li>
+      <li><span class="idx">08</span><span class="place">Esquel</span><span class="prov">Chubut</span></li>
+      <li><span class="idx">09</span><span class="place">Parque Nacional Los Alerces</span><span class="prov">Chubut</span></li>
+      <li><span class="idx">10</span><span class="place">Cascada Nant y Fall, Trevelin</span><span class="prov">Chubut</span></li>
+      <li><span class="idx">11</span><span class="place">Perito Moreno</span><span class="prov">Santa Cruz</span></li>
+      <li><span class="idx">12</span><span class="place">Cueva de las Manos</span><span class="prov">Santa Cruz</span></li>
+      <li><span class="idx">13</span><span class="place">El Chaltén</span><span class="prov">Santa Cruz</span></li>
+      <li><span class="idx">14</span><span class="place">El Calafate</span><span class="prov">Santa Cruz</span></li>
+      <li><span class="idx">15</span><span class="place">Cabo Vírgenes</span><span class="prov">Santa Cruz</span></li>
+      <li><span class="idx">16</span><span class="place">Monte León</span><span class="prov">Santa Cruz</span></li>
+      <li><span class="idx">17</span><span class="place">Bosques Petrificados de Jaramillo</span><span class="prov">Santa Cruz</span></li>
+      <li><span class="idx">18</span><span class="place">Isla Pingüino</span><span class="prov">Santa Cruz</span></li>
+      <li><span class="idx">19</span><span class="place">Cabo Dos Bahías</span><span class="prov">Chubut</span></li>
+      <li><span class="idx">20</span><span class="place">Península Valdés</span><span class="prov">Chubut</span></li>
+      <li><span class="idx">21</span><span class="place">Punta Bermeja, La Lobería</span><span class="prov">Río Negro</span></li>
+      <li><span class="idx">22</span><span class="place">Gral. Rodríguez</span><span class="prov">Regreso</span></li>
     </ol>
   </div>
 </section>
@@ -184,6 +196,71 @@
   <footer class="bottom">FINISTERRE 71 — BUENOS AIRES → PATAGONIA — 2027</footer>
 </footer>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+(function () {
+  var mapEl = document.getElementById('routeMap');
+  if (!mapEl || typeof L === 'undefined') return;
+
+  var stops = [
+    { idx: 1,  place: 'Buenos Aires',                     prov: 'Salida',      lat: -34.6037, lng: -58.3816 },
+    { idx: 2,  place: 'Junín de los Andes',                prov: 'Neuquén',     lat: -39.9505, lng: -71.0729 },
+    { idx: 3,  place: 'San Martín de los Andes',            prov: 'Neuquén',     lat: -40.1576, lng: -71.3538 },
+    { idx: 4,  place: 'Villa La Angostura',                 prov: 'Neuquén',     lat: -40.7627, lng: -71.6438 },
+    { idx: 5,  place: 'San Carlos de Bariloche',            prov: 'Río Negro',   lat: -41.1335, lng: -71.3103 },
+    { idx: 6,  place: 'El Bolsón',                          prov: 'Río Negro',   lat: -41.9667, lng: -71.5333 },
+    { idx: 7,  place: 'Cholila',                            prov: 'Chubut',      lat: -42.5167, lng: -71.4333 },
+    { idx: 8,  place: 'Esquel',                             prov: 'Chubut',      lat: -42.9092, lng: -71.3169 },
+    { idx: 9,  place: 'Parque Nacional Los Alerces',        prov: 'Chubut',      lat: -42.8500, lng: -71.6500 },
+    { idx: 10, place: 'Cascada Nant y Fall, Trevelin',      prov: 'Chubut',      lat: -43.1500, lng: -71.6500 },
+    { idx: 11, place: 'Perito Moreno',                      prov: 'Santa Cruz',  lat: -46.5946, lng: -70.9153 },
+    { idx: 12, place: 'Cueva de las Manos',                 prov: 'Santa Cruz',  lat: -47.1608, lng: -70.5978 },
+    { idx: 13, place: 'El Chaltén',                         prov: 'Santa Cruz',  lat: -49.3315, lng: -72.8878 },
+    { idx: 14, place: 'El Calafate',                        prov: 'Santa Cruz',  lat: -50.3379, lng: -72.2648 },
+    { idx: 15, place: 'Cabo Vírgenes',                      prov: 'Santa Cruz',  lat: -52.3392, lng: -68.4131 },
+    { idx: 16, place: 'Monte León',                         prov: 'Santa Cruz',  lat: -50.1500, lng: -68.8500 },
+    { idx: 17, place: 'Bosques Petrificados de Jaramillo',  prov: 'Santa Cruz',  lat: -47.7500, lng: -67.5000 },
+    { idx: 18, place: 'Isla Pingüino',                      prov: 'Santa Cruz',  lat: -47.8500, lng: -65.9500 },
+    { idx: 19, place: 'Cabo Dos Bahías',                    prov: 'Chubut',      lat: -44.9333, lng: -65.5333 },
+    { idx: 20, place: 'Península Valdés',                   prov: 'Chubut',      lat: -42.4000, lng: -63.9000 },
+    { idx: 21, place: 'Punta Bermeja, La Lobería',          prov: 'Río Negro',   lat: -40.8500, lng: -64.9500 },
+    { idx: 22, place: 'Gral. Rodríguez',                    prov: 'Regreso',     lat: -34.6167, lng: -58.9667 }
+  ];
+
+  var accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#b14e28';
+
+  var map = L.map('routeMap', { scrollWheelZoom: false, attributionControl: true });
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>, &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>',
+    subdomains: 'abcd',
+    maxZoom: 18
+  }).addTo(map);
+
+  var latlngs = stops.map(function (s) { return [s.lat, s.lng]; });
+
+  L.polyline(latlngs, { color: accent, weight: 2, opacity: 0.85, dashArray: '2 7' }).addTo(map);
+
+  stops.forEach(function (s) {
+    var isEndpoint = s.idx === 1 || s.idx === stops.length;
+    var icon = L.divIcon({
+      className: 'route-marker' + (isEndpoint ? ' is-endpoint' : ''),
+      html: '<span>' + s.idx + '</span>',
+      iconSize: [22, 22],
+      iconAnchor: [11, 11]
+    });
+    L.marker([s.lat, s.lng], { icon: icon, title: s.place })
+      .addTo(map)
+      .bindPopup('<strong>' + String(s.idx).padStart(2, '0') + ' · ' + s.place + '</strong><br>' + s.prov);
+  });
+
+  map.fitBounds(latlngs, { padding: [26, 26] });
+
+  map.on('click', function () { map.scrollWheelZoom.enable(); });
+  mapEl.addEventListener('mouseleave', function () { map.scrollWheelZoom.disable(); });
+})();
+</script>
 <script src="js/main.js"></script>
 </body>
 </html>
