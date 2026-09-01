@@ -240,7 +240,34 @@
 
   var latlngs = stops.map(function (s) { return [s.lat, s.lng]; });
 
-  L.polyline(latlngs, { color: accent, weight: 2, opacity: 0.85, dashArray: '2 7' }).addTo(map);
+  var fallbackLine = L.polyline(latlngs, { color: accent, weight: 2, opacity: 0.6, dashArray: '2 7' }).addTo(map);
+
+  function fetchLeg(a, b) {
+    var url = 'https://router.project-osrm.org/route/v1/driving/' + a.lng + ',' + a.lat + ';' + b.lng + ',' + b.lat + '?overview=full&geometries=geojson';
+    return fetch(url)
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        if (data && data.code === 'Ok' && data.routes && data.routes[0]) {
+          return data.routes[0].geometry.coordinates.map(function (c) { return [c[1], c[0]]; });
+        }
+        return [[a.lat, a.lng], [b.lat, b.lng]];
+      })
+      .catch(function () { return [[a.lat, a.lng], [b.lat, b.lng]]; });
+  }
+
+  var legPromises = [];
+  for (var i = 0; i < stops.length - 1; i++) {
+    legPromises.push(fetchLeg(stops[i], stops[i + 1]));
+  }
+
+  Promise.all(legPromises).then(function (legs) {
+    var full = [];
+    legs.forEach(function (leg, i) {
+      full = full.concat(i > 0 ? leg.slice(1) : leg);
+    });
+    map.removeLayer(fallbackLine);
+    L.polyline(full, { color: accent, weight: 3, opacity: 0.85 }).addTo(map);
+  }).catch(function () { /* keep fallbackLine */ });
 
   stops.forEach(function (s) {
     var isEndpoint = s.idx === 1 || s.idx === stops.length;
